@@ -37,7 +37,7 @@ java_library_static {
     name: "libphonenumber-platform",
     tags: ["optional"],
     srcs: libphonenumber_platform_src_files,
-    resource_dirs: libphonenumber_platform_resource_dirs,
+    java_resource_dirs: libphonenumber_platform_resource_dirs,
     jarjar_rules: "jarjar-rules.txt",
 
     no_standard_libraries: true,
@@ -49,6 +49,6 @@ java_library_static {
     name: "libphonenumber",
     tags: ["optional"],
     srcs: libphonenumber_src_files,
-    resource_dirs: libphonenumber_resource_dirs,
+    java_resource_dirs: libphonenumber_resource_dirs,
     sdk_version: "9",
 }
