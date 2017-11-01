@@ -259,19 +259,35 @@ public class ExampleNumbersTest extends TestCase {
   public void testCarrierSpecificShortNumbers() throws Exception {
     int wrongTagCounter = 0;
     for (String regionCode : shortNumberInfo.getSupportedRegions()) {
-      // Test the carrier-specific tag.
       PhoneNumberDesc desc =
           MetadataManager.getShortNumberMetadataForRegion(regionCode).getCarrierSpecific();
       if (desc.hasExampleNumber()) {
         String exampleNumber = desc.getExampleNumber();
         PhoneNumber carrierSpecificNumber = phoneNumberUtil.parse(exampleNumber, regionCode);
         if (!shortNumberInfo.isPossibleShortNumberForRegion(carrierSpecificNumber, regionCode)
-            || !shortNumberInfo.isCarrierSpecific(carrierSpecificNumber)) {
+            || !shortNumberInfo.isCarrierSpecificForRegion(carrierSpecificNumber, regionCode)) {
           wrongTagCounter++;
           logger.log(Level.SEVERE, "Carrier-specific test failed for " + regionCode);
         }
       }
-      // TODO: Test other tags here.
+    }
+    assertEquals(0, wrongTagCounter);
+  }
+
+  public void testSmsServiceShortNumbers() throws Exception {
+    int wrongTagCounter = 0;
+    for (String regionCode : shortNumberInfo.getSupportedRegions()) {
+      PhoneNumberDesc desc =
+          MetadataManager.getShortNumberMetadataForRegion(regionCode).getSmsServices();
+      if (desc.hasExampleNumber()) {
+        String exampleNumber = desc.getExampleNumber();
+        PhoneNumber smsServiceNumber = phoneNumberUtil.parse(exampleNumber, regionCode);
+        if (!shortNumberInfo.isPossibleShortNumberForRegion(smsServiceNumber, regionCode)
+            || !shortNumberInfo.isSmsServiceForRegion(smsServiceNumber, regionCode)) {
+          wrongTagCounter++;
+          logger.log(Level.SEVERE, "SMS service test failed for " + regionCode);
+        }
+      }
     }
     assertEquals(0, wrongTagCounter);
   }
