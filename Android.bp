@@ -33,7 +33,7 @@ java_library {
     ],
 
     libs: [
-        "unsupportedappusage-annotation",
+        "unsupportedappusage",
     ],
 
     sdk_version: "core_current",
