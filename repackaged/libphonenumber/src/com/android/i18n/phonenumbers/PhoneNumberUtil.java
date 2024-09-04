@@ -134,7 +134,7 @@ public class PhoneNumberUtil {
 
     HashSet<Integer> countriesWithoutNationalPrefixWithAreaCodes = new HashSet<>();
     countriesWithoutNationalPrefixWithAreaCodes.add(52);  // Mexico
-    COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES =
+    COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES = 
     		Collections.unmodifiableSet(countriesWithoutNationalPrefixWithAreaCodes);
 
     HashSet<Integer> geoMobileCountries = new HashSet<>();
@@ -941,7 +941,7 @@ public class PhoneNumberUtil {
     // zero, we assume it is a closed dialling plan with no area codes.
     // Note:this is our general assumption, but there are exceptions which are tracked in
     // COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES.
-    if (!metadata.hasNationalPrefix() && !number.isItalianLeadingZero()
+    if (!metadata.hasNationalPrefix() && !number.isItalianLeadingZero() 
     && !COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES.contains(countryCallingCode)) {
       return 0;
     }
