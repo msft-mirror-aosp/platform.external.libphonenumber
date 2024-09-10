@@ -119,7 +119,7 @@ java_library {
         "mockito-target-extended",
     ],
     libs: [
-        "android.test.mock",
+        "android.test.mock.stubs",
     ],
     java_version: "1.7",
 }
