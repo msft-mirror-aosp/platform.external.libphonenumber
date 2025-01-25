@@ -38,5 +38,19 @@ do
     sed "s|Version: .*$|Version: $VERSION|" < $tmp/$i > $DIR/$i
     (cd $DIR; git add $i)
 done
+
+YEAR=$(date +%Y)
+MONTH=$(date +%m)
+DAY=$(date +%d)
+cp $DIR/METADATA $tmp
+echo "Updating METADATA"
+sed -e "s/\(version: \)\(.*\)/\1$VERSION/
+        s/\(year: \)\(.*\)/\1$YEAR/
+        s/\(month: \)\(.*\)/\1$MONTH/
+        s/\(day: \)\(.*\)/\1$DAY/" < $tmp/METADATA > $DIR/METADATA
+
+(cd $DIR; git add METADATA)
+
 ${DIR}/srcgen/generate_android_src.sh
+
 git add repackaged
