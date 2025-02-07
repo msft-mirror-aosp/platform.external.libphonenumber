@@ -132,7 +132,7 @@ public class PhoneNumberUtil {
 
     HashSet<Integer> countriesWithoutNationalPrefixWithAreaCodes = new HashSet<>();
     countriesWithoutNationalPrefixWithAreaCodes.add(52);  // Mexico
-    COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES =
+    COUNTRIES_WITHOUT_NATIONAL_PREFIX_WITH_AREA_CODES = 
     		Collections.unmodifiableSet(countriesWithoutNationalPrefixWithAreaCodes);
 
     HashSet<Integer> geoMobileCountries = new HashSet<>();
