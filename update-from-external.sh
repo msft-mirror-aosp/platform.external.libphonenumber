@@ -44,7 +44,7 @@ MONTH=$(date +%m)
 DAY=$(date +%d)
 cp $DIR/METADATA $tmp
 echo "Updating METADATA"
-sed -e "s/\(version: \)\(.*\)/\1$VERSION/
+sed -e "s/\(version: \)\(.*\)/\1\"$VERSION\"/
         s/\(year: \)\(.*\)/\1$YEAR/
         s/\(month: \)\(.*\)/\1$MONTH/
         s/\(day: \)\(.*\)/\1$DAY/" < $tmp/METADATA > $DIR/METADATA
