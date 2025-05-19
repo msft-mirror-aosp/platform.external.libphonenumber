@@ -57,6 +57,32 @@ java_library {
     sdk_version: "core_current",
 }
 
+java_library {
+    name: "libphonenumber-platform-nogeocoder",
+
+    // For the platform, compile everything except the carrier to phone number
+    // which isn't used.
+    java_resource_dirs: [
+        "repackaged/libphonenumber/src",
+        "repackaged/internal/prefixmapper/src",
+    ],
+
+    srcs: [
+        "repackaged/libphonenumber/src/**/*.java",
+        "repackaged/internal/prefixmapper/src/**/*.java",
+    ],
+
+    libs: [
+        "unsupportedappusage",
+    ],
+
+    sdk_version: "core_current",
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.telephony2",
+    ],
+}
+
 java_defaults {
     name: "libphonenumber-unbundled-defaults",
     java_resource_dirs: [
