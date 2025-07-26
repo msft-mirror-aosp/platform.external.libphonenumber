@@ -9,11 +9,11 @@ third_party {
     type: ARCHIVE
     value: "https://github.com/google/libphonenumber/archive/refs/tags/v8.13.16.tar.gz"
   }
-  version: "9.0.7"
+  version: "9.0.10"
   license_type: NOTICE
   last_upgrade_date {
     year: 2025
-    month: 06
-    day: 10
+    month: 07
+    day: 24
   }
 }
